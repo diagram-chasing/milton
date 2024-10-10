@@ -1,0 +1,394 @@
+@import '@fontsource/fira-mono';
+@import './fonts.css';
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Prevent font size inflation */
+html {
+  -moz-text-size-adjust: none;
+  -webkit-text-size-adjust: none;
+  text-size-adjust: none;
+}
+
+/* Remove default margin in favour of better control in authored CSS */
+body, h1, h2, h3, h4, p,
+figure, blockquote, dl, dd {
+  margin-block-end: 0;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role='list'],
+ol[role='list'] {
+  list-style: none;
+}
+
+/* Set core body defaults */
+body {
+  min-height: 100vh;
+  line-height: 1.5;
+  background-color: #121645;
+}
+
+/* Set shorter line heights on headings and interactive elements */
+h1, h2, h3, h4,
+button, input, label {
+  line-height: 1.1;
+}
+
+/* Balance text wrapping on headings */
+h1, h2,
+h3, h4 {
+  text-wrap: balance;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+  color: currentColor;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+input, button,
+textarea, select {
+  font-family: inherit;
+  font-size: inherit;
+}
+
+/* Make sure textareas without a rows attribute are not tiny */
+textarea:not([rows]) {
+  min-height: 10em;
+}
+
+/* Anything that has been anchored to should have extra scroll margin */
+:target {
+  scroll-margin-block: 5ex;
+}
+
+@media print {
+  *,
+  *:before,
+  *:after {
+    background: transparent !important;
+    color: #000 !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+
+  a,
+  a:visited {
+    text-decoration: underline;
+  }
+
+  /* a[href]:after {
+    content: " (" attr(href) ")";
+  }
+
+  abbr[title]:after {
+    content: " (" attr(title) ")";
+  }
+
+  a[href^="#"]:after,
+  a[href^="javascript:"]:after {
+    content: "";
+  } */
+
+  pre,
+  blockquote {
+    border: 1px solid #999;
+    page-break-inside: avoid;
+  }
+
+  thead {
+    display: table-header-group;
+  }
+
+  tr,
+  img {
+    page-break-inside: avoid;
+  }
+
+  img {
+    max-width: 100% !important;
+  }
+
+  p,
+  h2,
+  h3 {
+    orphans: 3;
+    widows: 3;
+  }
+
+  h2,
+  h3 {
+    page-break-after: avoid;
+  }
+}
+
+html {
+  font-size: 12px;
+}
+
+@media screen and (min-width: 32rem) and (max-width: 48rem) {
+  html {
+    font-size: 15px;
+  }
+}
+
+@media screen and (min-width: 48rem) {
+  html {
+    font-size: 16px;
+  }
+}
+
+body {
+  line-height: 1.85;
+}
+
+p,
+.splendor-p {
+  font-size: 1rem;
+  margin-bottom: 1.3rem;
+  font-family: 'Roboto', sans-serif;
+  color: #e4e6ed;
+}
+
+h1,
+.splendor-h1,
+h2,
+.splendor-h2,
+h3,
+.splendor-h3,
+h4,
+.splendor-h4 {
+  margin: 1.414rem 0 .5rem;
+  font-weight: inherit;
+  line-height: 1.42;
+  font-weight: 600;
+  font-family: 'Libre Caslon Condensed', serif;
+  color: #e4e6ed;
+}
+
+h1,
+.splendor-h1 {
+  margin-top: 0;
+  font-size: 2.8rem;
+}
+
+h2,
+.splendor-h2 {
+  font-size: 2.827rem;
+}
+
+h3,
+.splendor-h3 {
+  font-size: 1.999rem;
+}
+
+h4,
+.splendor-h4 {
+  font-size: 1.414rem;
+}
+
+h5,
+.splendor-h5 {
+  font-size: 1.121rem;
+}
+
+h6,
+.splendor-h6 {
+  font-size: .88rem;
+}
+
+small,
+.splendor-small {
+  font-size: .707em;
+}
+
+/* https://github.com/mrmrs/fluidity */
+
+img,
+canvas,
+iframe,
+video,
+svg,
+select,
+textarea {
+  max-width: 100%;
+}
+
+
+
+html {
+  font-size: 18px;
+  max-width: 100%;
+}
+
+
+
+/* === A bit of a gross hack so we can have bleeding divs/blockquotes. */
+
+p,
+*:not(div):not(img):not(body):not(html):not(li):not(blockquote):not(p):not(h1):not(h2):not(h3):not(h4):not(h5):not(h6) {
+  margin: 0 auto;
+  width: 100%;
+  max-width: 38rem;
+  padding: .25rem;
+}
+
+
+div img {
+  width: 100%;
+}
+
+blockquote p {
+  font-size: 1.5rem;
+  font-style: italic;
+  margin: 1rem auto 1rem;
+  max-width: 48rem;
+}
+
+li {
+  margin-left: 2rem;
+  color: #e4e6ed;
+  list-style-type: disc;
+}
+
+/* Counteract the specificity of the gross *:not() chain. */
+
+
+p {
+ 
+  height: auto;
+  line-height: 1.45;
+}
+
+pre,
+code {
+  font-family: Menlo, Monaco, "Courier New", monospace;
+}
+
+pre {
+  background-color: #fafafa;
+  font-size: .8rem;
+  overflow-x: scroll;
+  padding: 1.125em;
+}
+
+a,
+a:visited {
+  color: #f7f7f7;
+  text-decoration: underline;
+  text-underline-offset: 0.25em;
+}
+
+a:hover,
+a:focus,
+a:active {
+  color: #d7d7d7;
+}
+
+body { 
+  background-color: #121645;
+}
+
+@media (max-width: 800px) {
+  h1 {
+    font-size: 2.5rem;
+  }
+  h2 {
+    font-size: 2rem;
+  }
+  h3 {
+    font-size: 1.5rem;
+  }
+  h4 {
+    font-size: 1rem;
+  }
+}
+
+
+
+.g-towns p,
+.g-legend_copy  p {
+  font-family: 'Libre Caslon Condensed', serif !important;
+  text-shadow: 0px 1px 2px #212121, 0px -1px 2px #212121, 1px 0px 4px #212121,
+		-1px 0px 4px #212121;
+}
+
+.g-small-labels p,
+.g-labels p {
+  text-shadow: 0px 1px 2px #212121, 0px -1px 2px #212121, 1px 0px 4px #212121,
+  -1px 0px 4px #212121;
+}
+
+.small-labels p,
+.g-labels p {
+  font-family: 'Roboto', sans-serif;
+}
+
+hr {
+  border-top: 2px solid #e4e6ed;
+  margin: 2rem 0;
+}
+
+a {
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+caption {
+  text-align: left;
+  font-size: 0.6rem;
+  color: #e4e6ed
+}
+
+.highlight {
+  padding: 1px 4px;
+  border-radius: 6px;
+  color: white; /* Ensure text is visible on the background */
+  white-space: nowrap; /* Prevent text wrapping */
+}
+
+.highlight-hurricane {
+  background-color: #121645; /* Solid background color */
+  background-image: linear-gradient(45deg, 
+    rgba(18, 22, 69, 0.7) 16.67%, 
+    rgba(175, 133, 102, 0.6) 16.67%, 
+    rgba(175, 133, 102, 0.6) 50%, 
+    rgba(18, 22, 69, 0.7) 50%, 
+    rgba(18, 22, 69, 0.7) 66.67%, 
+    rgba(175, 133, 102, 0.6) 66.67%, 
+    rgba(175, 133, 102, 0.6) 100%
+  );
+  background-size: 4.24px 4.24px;
+}
+
+.highlight-tropical {
+  background-color: #121645; /* Solid background color */
+  background-image: linear-gradient(45deg, 
+    rgba(18, 22, 69, 0.7) 16.67%, 
+    rgba(153, 55, 121, 0.7) 16.67%, 
+    rgba(153, 55, 121, 0.7) 50%, 
+    rgba(18, 22, 69, 0.7) 50%, 
+    rgba(18, 22, 69, 0.7) 66.67%, 
+    rgba(153, 55, 121, 0.7) 66.67%, 
+    rgba(153, 55, 121, 0.7) 100%
+  );
+  background-size: 4.24px 4.24px;
+}

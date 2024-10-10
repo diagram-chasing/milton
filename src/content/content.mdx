@@ -1,0 +1,70 @@
+---
+title: New residents in Hurrican Milton's path
+description: Regions along Hurricane Milton's projected path where census data shows substantial increases in population and housing in the last decade
+date: '2024-10-10'
+categories:
+  - gis
+  - map, usa
+author: 
+  - 'Vivek Matthew'
+  - 'Aman Bhargava'
+ogImage: '/sharecard.jpg'
+---
+
+<script>import Counter from '$components/charts/LineChart.svelte'
+import MainMap from '$ai2html/population-change.svelte'
+import HousingMap from '$ai2html/housing-2010.svelte'
+import Methodology from '$lib/components/primary/Methodology.svelte'
+import References from '$components/primary/References.svelte'
+
+</script>
+
+With two Category 5 hurricanes, four major hurricanes, and now with Hurricane Milton, the fifth highest peak hurricane intensity ever recorded, 2024 is arguably among the most devastating Atlantic hurricane seasons. Census data shows that millions of new Floridians are facing an unprecedented hurricane season's impact for their first time.
+
+Tampa Bay hasn’t been directly hit by a major hurricane since 1921, and Orlando last saw significant damage in 2004. Since then, millions of people have moved to Florida, with over 2 million moving into the Tampa Bay and Orlando areas over the past decade alone, both places along Hurricane Milton's potential area of influence.
+
+
+<figure class="h-full w-full">
+  <svelte:component this={MainMap}/>
+  <caption>Source: US Census, NOAA, Natural Earth</caption> 
+</figure>
+
+Hurricanes have sustained <span class="highlight highlight-hurricane"> winds of 74 mph or higher </span>, while tropical storms have sustained <span class="highlight highlight-tropical">winds between 39 mph and 73 mph</span>.
+
+By housing units built, both Tampa Bay and Orlando are among the top 10 cities nationwide, with over 500,000 units added since 2010.
+
+<figure class="h-full w-full">
+  <svelte:component this={HousingMap}/>
+  <caption>Source: US Census, NOAA, Natural Earth</caption> 
+</figure>
+
+<hr/>
+
+
+<Methodology>
+<span slot="content">
+
+Population, housing and demographic data are sourced from the American Community Survey 5-Year Data, 2010 and 2022, by the [US Census Bureau](https://data.census.gov/). Census tract data is the fundamental geographic unit used, from the ACS 5-Year tables B01003, B01002, B25001, B25034, B25038. Proccessed in R using [tidycensus](https://walker-data.com/tidycensus/). 
+Population growth between 2010 and 2022 calculated using population-weighted areal interpolation. For creating the hex maps, generated centroids for each census tract and binned into a hexagonal grid for aggregation. Percentage of housing units built since 2010 calculated against total number of housing units in the census tract.  
+<br/>
+
+Access our code and maps on [Github](https://github.com/diagram-chasing/milton). If you spot an error in our methodology or work, please write to us by filing an issue on Github and we'll try our best to make a correction as soon as we can.
+
+</span>
+
+</Methodology>
+
+<References>
+<span slot="content">
+
+
+- 2024 Atlantic hurricane season: https://en.wikipedia.org/wiki/2024_Atlantic_hurricane_season
+- Milton peak intensity: https://www.nhc.noaa.gov/archive/2024/al14/al142024.discus.012.shtml?
+- Tampa Bay in 1921 https://en.wikipedia.org/wiki/1921_Tampa_Bay_hurricane
+- Orlando in 2004: https://en.wikipedia.org/wiki/2004_Atlantic_hurricane_season
+- Florida metros population growth: https://www.census.gov/library/stories/2024/03/florida-and-fast-growing-metros.html
+- Cities building the most housing: https://constructioncoverage.com/research/cities-investing-most-in-new-housing
+- Growing populations in disaster-prone areas: https://www.nytimes.com/interactive/2024/09/30/climate/americans-moving-hurricane-wildfire-risk.html
+
+</span>
+</References>
