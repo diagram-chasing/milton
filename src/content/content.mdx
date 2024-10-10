@@ -19,7 +19,7 @@ import References from '$components/primary/References.svelte'
 
 </script>
 
-With two Category 5 hurricanes, four major hurricanes, and now with Hurricane Milton, the fifth highest peak hurricane intensity ever recorded, 2024 is arguably among the most devastating Atlantic hurricane seasons. Census data shows that millions of new Floridians are facing an unprecedented hurricane season's impact for their first time.
+With two Category 5 hurricanes, four major hurricanes, and now with Hurricane Milton, the fifth highest peak hurricane intensity ever recorded, 2024 is arguably among the most devastating Atlantic hurricane seasons. Census data shows that millions of new Floridians are facing an unprecedented hurricane season's impact for the first time.
 
 Tampa Bay hasn’t been directly hit by a major hurricane since 1921, and Orlando last saw significant damage in 2004. Since then, millions of people have moved to Florida, with over 2 million moving into the Tampa Bay and Orlando areas over the past decade alone, both places along Hurricane Milton's potential area of influence.
 
@@ -44,11 +44,11 @@ By housing units built, both Tampa Bay and Orlando are among the top 10 cities n
 <Methodology>
 <span slot="content">
 
-Population, housing and demographic data are sourced from the American Community Survey 5-Year Data, 2010 and 2022, by the [US Census Bureau](https://data.census.gov/). Census tract data is the fundamental geographic unit used, from the ACS 5-Year tables B01003, B01002, B25001, B25034, B25038. Proccessed in R using [tidycensus](https://walker-data.com/tidycensus/). 
-Population growth between 2010 and 2022 calculated using population-weighted areal interpolation. For creating the hex maps, generated centroids for each census tract and binned into a hexagonal grid for aggregation. Percentage of housing units built since 2010 calculated against total number of housing units in the census tract.  
+Population, housing, and demographic data are sourced from the American Community Survey 5-Year Data, 2010 and 2022, by the [US Census Bureau](https://data.census.gov/). Census tract data is the fundamental geographic unit used, from the ACS 5-Year tables B01003, B01002, B25001, B25034, B25038. Proccessed in R using [tidycensus](https://walker-data.com/tidycensus/). 
+Population growth between 2010 and 2022 was calculated using population-weighted areal interpolation using the `tidycensus` package in R. For creating the hex maps, we generated centroids for each census tract and binned them into a hexagonal grid for aggregation. The percentage of housing units built since 2010 was calculated against the total number of housing units in the census tract.
 <br/>
 
-Access our code and maps on [Github](https://github.com/diagram-chasing/milton). If you spot an error in our methodology or work, please write to us by filing an issue on Github and we'll try our best to make a correction as soon as we can.
+Access our code and maps on [Github](https://github.com/diagram-chasing/milton). If you spot an error in our methodology or work, please write to us by filing an issue on Github, and we'll try our best to make a correction as soon as we can.
 
 </span>
 
@@ -62,7 +62,7 @@ Access our code and maps on [Github](https://github.com/diagram-chasing/milton).
 - Milton peak intensity: https://www.nhc.noaa.gov/archive/2024/al14/al142024.discus.012.shtml?
 - Tampa Bay in 1921 https://en.wikipedia.org/wiki/1921_Tampa_Bay_hurricane
 - Orlando in 2004: https://en.wikipedia.org/wiki/2004_Atlantic_hurricane_season
-- Florida metros population growth: https://www.census.gov/library/stories/2024/03/florida-and-fast-growing-metros.html
+- Florida metro population growth: https://www.census.gov/library/stories/2024/03/florida-and-fast-growing-metros.html
 - Cities building the most housing: https://constructioncoverage.com/research/cities-investing-most-in-new-housing
 - Growing populations in disaster-prone areas: https://www.nytimes.com/interactive/2024/09/30/climate/americans-moving-hurricane-wildfire-risk.html
 
