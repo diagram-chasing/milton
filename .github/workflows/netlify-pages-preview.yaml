@@ -58,7 +58,7 @@ jobs:
           enable-commit-comment: true
           enable-commit-status: true
           overwrites-pull-request-comment: true
-          #netlify-config-path: ./netlify.toml
+          netlify-config-path: ./netlify.toml
           #functions-dir: ./netlify/edge-functions
           github-deployment-environment: "netlify-preview"
           github-deployment-description: "Preview Deployment on Netlify"
