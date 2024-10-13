@@ -1,4 +1,4 @@
-# Workflow for deploying to Cloudflare Pages as Preview
+# Workflow for deploying to Netlify as Preview
 name: Preview Deploy
 
 on:
@@ -9,7 +9,7 @@ on:
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
-# Sets permissions of the GITHUB_TOKEN to allow deployment to Cloudflare Pages
+# Sets permissions of the GITHUB_TOKEN to allow deployment to Netlify
 permissions:
   contents: read
   deployments: write
@@ -17,14 +17,14 @@ permissions:
 # Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
 # However, do NOT cancel in-progress runs as we want to allow these production deployments to complete.
 concurrency:
-  group: "pages"
+  group: "netlify"
   cancel-in-progress: false
 
 jobs:
   # Single deploy job since we're just deploying
   deploy:
     environment:
-      name: cf-pages
+      name: netlify
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
@@ -46,13 +46,22 @@ jobs:
       - name: Build artifact
         run: |
           pnpm run build
-        
-      - name: Deploy to Cloudflare Pages
-        uses: cloudflare/pages-action@v1
+
+      - name: Deploy to Netlify
+        uses: nwtgck/actions-netlify@v3.0
         with:
-          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          projectName: 'diagramchasing-milton'
-          directory: 'build'
-          gitHubToken: ${{ secrets.GITHUB_TOKEN }}
-          branch: 'preview'
+          alias: "preview"
+          publish-dir: './build'
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          deploy-message: "Deploy from GitHub Actions"
+          enable-pull-request-comment: false
+          enable-commit-comment: true
+          enable-commit-status: true
+          overwrites-pull-request-comment: true
+          #netlify-config-path: ./netlify.toml
+          #functions-dir: ./netlify/edge-functions
+          github-deployment-environment: "netlify-preview"
+          github-deployment-description: "Preview Deployment on Netlify"
+        env:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
